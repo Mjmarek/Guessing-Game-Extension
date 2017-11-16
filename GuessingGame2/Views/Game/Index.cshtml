@@ -6,13 +6,20 @@
 
 <h2>Guessing Game</h2>
 
-@if (!(ViewBag.Win ?? false ))
-{
-    if (ViewBag.Win != null && !ViewBag.Win)
-    //This ensures lose message does not display when form is first viewed because player has not yet made a guess.
+@if (!(ViewBag.Win ?? false))
+{//Line below ensures lose message does not display when form is first viewed because player has not yet made a guess.
+    if (ViewBag.Win != null && !ViewBag.Win && ViewBag.IsLowGuess)
 
     {
-       <h2>Sorry, @Model.PlayerName, @Model.Guess is not correct. Please guess again.</h2>
+       <h2>Sorry, @Model.PlayerName, @Model.Guess is not correct.</h2>
+       <p>Please guess again. Hint: The answer is a higher number.</p>
+    }
+
+    if (ViewBag.Win != null && !ViewBag.Win && !ViewBag.IsLowGuess)
+
+    {
+        <h2>Sorry, @Model.PlayerName, @Model.Guess is not correct.</h2>
+        <p>Please guess again. Hint: The answer is a lower number.</p>
     }
 
     using (Html.BeginForm())

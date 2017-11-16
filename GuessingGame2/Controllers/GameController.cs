@@ -25,19 +25,25 @@ namespace GuessingGame2.Controllers
         {
             if (ModelState.IsValid)
             {
-               ViewBag.Win = GuessWasCorrect(model.Guess);
+                ViewBag.Win = GuessWasCorrect(model.Guess);
+
+                ViewBag.IsLowGuess = ((int)Session["answer"] > model.Guess);                
             }
             return View(model);
         }
-
-        //if (answer > guess)
-        //    Sorry, your answer is too low. Please try again.
-
-        //if (answer < guess)
-        //    Sorry, your answer is too high. Please try again.
-
-        //Stretch Goals
-        //tell the user if guess is too high or too low
-        //tell the user if they've already guessed that number
     }
 }
+
+//Stretch Goals: tell the user if they've already guessed that number
+
+//ViewBag.IsLowGuess = ((int) Session["answer"] > model.Guess);
+//this is the same as the lines below (because condition is already a boolian)
+
+//if ((int) Session["answer"] > model.Guess)
+//{
+//    ViewBag.IsLowGuess = true;
+//}
+//else
+//{
+//    ViewBag.IsLowGuess = false;
+//}
