@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Sql_Scripts\V1__Initial_db.sql.sql" />
     <Content Include="Sql_Scripts\V2__Add_game_table.sql.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
